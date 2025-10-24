@@ -1,0 +1,88 @@
+<div class="home">
+  <!-- Toast Notification -->
+  @if (showToast()) {
+    <div class="toast-notification">
+      {{ toastMessage() }}
+    </div>
+  }
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Transform Your Space</h1>
+      <p class="hero-subtitle">Discover stunning wall posters for every style and passion</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="categories">
+      <h2 class="section-title">Browse by Category</h2>
+      <div class="category-grid">
+        @for (category of categories; track category.value) {
+          <button 
+            class="category-card"
+            [class.active]="selectedCategory() === category.value"
+            (click)="selectCategory(category.value)">
+            <span class="category-icon">{{ category.icon }}</span>
+            <span class="category-label">{{ category.label }}</span>
+          </button>
+        }
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="products-header">
+        <h2 class="section-title">
+          {{ getCategoryLabel() }}
+        </h2>
+        <p class="products-count">{{ filteredProducts().length }} posters available</p>
+      </div>
+      
+      <div class="product-grid">
+        @for (product of filteredProducts(); track product.id) {
+          <div class="product-card">
+            <a [routerLink]="['/product', product.id]" class="product-link">
+              <div class="product-image">
+                <img [src]="product.imageUrl" [alt]="product.name" />
+                @if (!product.inStock) {
+                  <div class="out-of-stock-badge">Out of Stock</div>
+                }
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <div class="product-meta">
+                  <span class="product-category">{{ product.category }}</span>
+                  <span class="product-rating">⭐ {{ product.rating }}</span>
+                </div>
+                <p class="product-description">{{ product.description }}</p>
+                <div class="product-footer">
+                  <span class="product-price">₹{{ product.price }}</span>
+                  <button 
+                    class="add-to-cart-btn"
+                    [class.in-cart]="getCartQuantity(product.id) > 0"
+                    [disabled]="!product.inStock"
+                    (click)="addToCart($event, product.id)">
+                    @if (product.inStock) {
+                      @if (getCartQuantity(product.id) > 0) {
+                        <span>In Cart ({{ getCartQuantity(product.id) }})</span>
+                      } @else {
+                        <span>Add to Cart</span>
+                      }
+                    } @else {
+                      <span>Out of Stock</span>
+                    }
+                  </button>
+                </div>
+              </div>
+            </a>
+          </div>
+        }
+      </div>
+      
+      @if (filteredProducts().length === 0) {
+        <div class="no-products">
+          <p>No posters found in this category.</p>
+        </div>
+      }
+    </section>
+  </div>
+</div>

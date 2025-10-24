@@ -1,0 +1,98 @@
+<div class="cart-page">
+  <div class="container">
+    <h1 class="page-title">Shopping Cart</h1>
+    
+    @if (cartService.items().length === 0) {
+      <div class="empty-cart">
+        <div class="empty-icon">🛒</div>
+        <h2>Your cart is empty</h2>
+        <p>Add some amazing posters to get started!</p>
+        <a routerLink="/" class="continue-shopping-btn">Browse Posters</a>
+      </div>
+    } @else {
+      <div class="cart-grid">
+        <div class="cart-items">
+          @for (item of cartService.items(); track item.product.id) {
+            <div class="cart-item">
+              <div class="item-image">
+                <img [src]="item.product.imageUrl" [alt]="item.product.name" />
+              </div>
+              
+              <div class="item-details">
+                <a [routerLink]="['/product', item.product.id]" class="item-name">
+                  {{ item.product.name }}
+                </a>
+                <div class="item-category">{{ item.product.category }}</div>
+                <div class="item-price">₹{{ item.product.price }}</div>
+              </div>
+              
+              <div class="item-actions">
+                <div class="quantity-controls">
+                  <button 
+                    (click)="updateQuantity(item.product.id, item.quantity - 1)"
+                    [disabled]="item.quantity <= 1">
+                    -
+                  </button>
+                  <span class="quantity">{{ item.quantity }}</span>
+                  <button (click)="updateQuantity(item.product.id, item.quantity + 1)">
+                    +
+                  </button>
+                </div>
+                
+                <div class="item-total">
+                  ₹{{ item.product.price * item.quantity }}
+                </div>
+                
+                <button 
+                  class="remove-btn"
+                  (click)="removeItem(item.product.id)"
+                  title="Remove item">
+                  🗑️
+                </button>
+              </div>
+            </div>
+          }
+          
+          <button class="clear-cart-btn" (click)="clearCart()">
+            Clear Cart
+          </button>
+        </div>
+        
+        <div class="cart-summary">
+          <h2>Order Summary</h2>
+          
+          <div class="summary-row">
+            <span>Items ({{ cartService.totalItems() }})</span>
+            <span>₹{{ cartService.totalPrice() }}</span>
+          </div>
+          
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span>{{ cartService.totalPrice() >= 999 ? 'FREE' : '₹50' }}</span>
+          </div>
+          
+          <div class="summary-divider"></div>
+          
+          <div class="summary-row total">
+            <span>Total</span>
+            <span>₹{{ cartService.totalPrice() >= 999 ? cartService.totalPrice() : cartService.totalPrice() + 50 }}</span>
+          </div>
+          
+          @if (cartService.totalPrice() < 999) {
+            <div class="shipping-notice">
+              Add ₹{{ 999 - cartService.totalPrice() }} more for free shipping!
+            </div>
+          }
+          
+          <button class="checkout-btn" (click)="checkout()">
+            Proceed to Checkout
+          </button>
+          
+          <a routerLink="/" class="continue-link">
+            ← Continue Shopping
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+</div>

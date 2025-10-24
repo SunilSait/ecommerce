@@ -1,0 +1,90 @@
+<div class="product-detail">
+  <!-- Toast Notification -->
+  @if (showToast()) {
+    <div class="toast-notification">
+      {{ toastMessage() }}
+    </div>
+  }
+  
+  @if (product(); as prod) {
+    <div class="container">
+      <a routerLink="/" class="back-link">← Back to Products</a>
+      
+      <div class="detail-grid">
+        <div class="image-section">
+          <div class="main-image">
+            <img [src]="prod.imageUrl" [alt]="prod.name" />
+            @if (!prod.inStock) {
+              <div class="out-of-stock-overlay">
+                <span>Out of Stock</span>
+              </div>
+            }
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <div class="category-badge">{{ prod.category }}</div>
+          <h1 class="product-title">{{ prod.name }}</h1>
+          
+          <div class="rating">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+            <span class="rating-value">{{ prod.rating }} / 5.0</span>
+          </div>
+          
+          <p class="product-description">{{ prod.description }}</p>
+          
+          <div class="price-section">
+            <span class="price">₹{{ prod.price }}</span>
+            <span class="price-label">per poster</span>
+          </div>
+          
+          <div class="features">
+            <h3>Features</h3>
+            <ul>
+              <li>✓ High-quality print on premium paper</li>
+              <li>✓ Vibrant colors that last</li>
+              <li>✓ Multiple size options available</li>
+              <li>✓ Ready to frame</li>
+              <li>✓ Fast shipping</li>
+            </ul>
+          </div>
+          
+          <div class="purchase-section">
+            <div class="quantity-selector">
+              <label>Quantity:</label>
+              <div class="quantity-controls">
+                <button (click)="decreaseQuantity()" [disabled]="quantity() <= 1">-</button>
+                <span class="quantity-value">{{ quantity() }}</span>
+                <button (click)="increaseQuantity()">+</button>
+              </div>
+            </div>
+            
+            @if (getCartQuantity() > 0) {
+              <div class="cart-info">
+                <span class="cart-count-badge">{{ getCartQuantity() }} in cart</span>
+              </div>
+            }
+            
+            <button 
+              class="add-to-cart-btn"
+              [class.in-cart]="getCartQuantity() > 0"
+              [disabled]="!prod.inStock"
+              (click)="addToCart()">
+              {{ prod.inStock ? 'Add to Cart - ₹' + (prod.price * quantity()) : 'Out of Stock' }}
+            </button>
+          </div>
+          
+          <div class="shipping-info">
+            <p>🚚 Free shipping on orders above ₹999</p>
+            <p>📦 Estimated delivery: 3-5 business days</p>
+            <p>↩️ Easy returns within 30 days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="container">
+      <p class="not-found">Product not found</p>
+    </div>
+  }
+</div>
