@@ -12,7 +12,7 @@ export class ProductService {
       category: 'anime',
       price: 329,
       description: 'Future Pirate King - Luffy poster',
-      imageUrl: 'https://i.ibb.co/vx3v1FbT/luffy.webp',
+      imageUrl: 'https://i.ibb.co/j9D7KWxN/luffy.webp',
       rating: 4.8,
       inStock: true
     },
@@ -42,7 +42,7 @@ export class ProductService {
       category: 'anime',
       price: 299,
       description: 'Legendary ninja Naruto poster',
-      imageUrl: 'https://i.ibb.co/Jw9bmjm5/naruto.webp',
+      imageUrl: 'https://i.ibb.co/RkpKymt3/naruto.webp',
       rating: 4.8,
       inStock: true
     },
@@ -72,7 +72,7 @@ export class ProductService {
       category: 'anime',
       price: 329,
       description: 'Luffy channeling Gol D. Roger',
-      imageUrl: 'https://i.ibb.co/Vc60QT7b/luffy-roger.webp',
+      imageUrl: 'https://i.ibb.co/cKqNxB3J/luffy-roger.webp',
       rating: 4.8,
       inStock: true
     },
@@ -102,7 +102,7 @@ export class ProductService {
       category: 'anime',
       price: 329,
       description: 'Legendary Uchiha clan leader poster',
-      imageUrl: 'https://i.ibb.co/FbCDTj0z/madara.webp',
+      imageUrl: 'https://i.ibb.co/mrtgKSXz/madara.webp',
       rating: 4.9,
       inStock: true
     },
@@ -122,7 +122,7 @@ export class ProductService {
       category: 'anime',
       price: 349,
       description: 'The tragic hero - Itachi Uchiha',
-      imageUrl: 'https://i.ibb.co/TDv9YqDJ/itachi.webp',
+      imageUrl: 'https://i.ibb.co/jkyTXf4L/itachi.webp',
       rating: 5.0,
       inStock: true
     },
@@ -152,7 +152,7 @@ export class ProductService {
       category: 'anime',
       price: 339,
       description: 'Humanity\'s strongest soldier poster',
-      imageUrl: 'https://i.ibb.co/srYRqKs/levi.webp',
+      imageUrl: 'https://i.ibb.co/8n2pvLXF/levi.webp',
       rating: 4.9,
       inStock: true
     },
@@ -172,7 +172,7 @@ export class ProductService {
       category: 'anime',
       price: 359,
       description: 'Iconic Death Note series poster',
-      imageUrl: 'https://i.ibb.co/27PwbSfg/death-note.webp',
+      imageUrl: 'https://i.ibb.co/cX2w4gm2/death-note.webp',
       rating: 4.9,
       inStock: true
     },
@@ -192,7 +192,7 @@ export class ProductService {
       category: 'anime',
       price: 289,
       description: 'Thunder breathing master Zenitsu',
-      imageUrl: 'https://i.ibb.co/DDV00fY2/zenitsu.webp',
+      imageUrl: 'https://i.ibb.co/gLd42N7q/zenitsu.webp',
       rating: 4.6,
       inStock: true
     },
@@ -212,7 +212,7 @@ export class ProductService {
       category: 'anime',
       price: 299,
       description: 'Epic Zoro poster - The Pirate Hunter',
-      imageUrl: 'https://i.ibb.co/tps2LfDV/zoro.webp',
+      imageUrl: 'https://i.ibb.co/rff8w9K9/zoro.webp',
       rating: 4.9,
       inStock: true
     },
@@ -232,7 +232,7 @@ export class ProductService {
       category: 'anime',
       price: 349,
       description: 'Iconic Dragon Ball series poster',
-      imageUrl: 'https://i.ibb.co/d0YzGw7D/dragon-ball.webp',
+      imageUrl: 'https://i.ibb.co/5XJWG5F1/dragon-ball.webp',
       rating: 4.9,
       inStock: true
     },
@@ -252,7 +252,7 @@ export class ProductService {
       category: 'anime',
       price: 319,
       description: 'Master manipulator Aizen poster',
-      imageUrl: 'https://i.ibb.co/sdRS3r7w/aizen.webp',
+      imageUrl: 'https://i.ibb.co/S443CvGF/aizen.webp',
       rating: 4.7,
       inStock: true
     },
@@ -262,7 +262,7 @@ export class ProductService {
       category: 'anime',
       price: 339,
       description: 'Attack Titan - Eren Yeager poster',
-      imageUrl: 'https://i.ibb.co/ynKdG51B/eren.webp',
+      imageUrl: 'https://i.ibb.co/hxCjv3VY/eren.webp',
       rating: 4.7,
       inStock: true
     },
@@ -272,7 +272,7 @@ export class ProductService {
       category: 'anime',
       price: 329,
       description: 'Monkey D. Luffy in Wano Country',
-      imageUrl: 'https://i.ibb.co/ymhqj3cC/luffy-wano.webp',
+      imageUrl: 'https://i.ibb.co/bgvrR1Xx/luffy-wano.webp',
       rating: 4.8,
       inStock: true
     },{
@@ -281,7 +281,7 @@ export class ProductService {
       category: 'anime',
       price: 349,
       description: 'The strongest sorcerer - Gojo Satoru',
-      imageUrl: 'https://i.ibb.co/609zq4N4/gojo.webp',
+      imageUrl: 'https://i.ibb.co/svvcmPdh/gojo.webp',
       rating: 5.0,
       inStock: true
     }
