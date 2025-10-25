@@ -67,4 +67,19 @@ export class HomeComponent {
     const cartItem = this.cartService.items().find(item => item.product.id === productId);
     return cartItem ? cartItem.quantity : 0;
   }
+  
+  getCategoryGradient(category: string): string {
+    const gradients: { [key: string]: string } = {
+      'all': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      'anime': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      'sports': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      'nature': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+      'movies': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    };
+    return gradients[category] || gradients['all'];
+  }
+  
+  getCategoryCount(category: string): number {
+    return this.productService.getProductsByCategory(category).length;
+  }
 }

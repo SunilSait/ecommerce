@@ -15,17 +15,19 @@
 
   <div class="container">
     <section class="categories">
-      <h2 class="section-title">Browse by Category</h2>
-      <div class="category-grid">
-        @for (category of categories; track category.value) {
-          <button 
-            class="category-card"
-            [class.active]="selectedCategory() === category.value"
-            (click)="selectCategory(category.value)">
-            <span class="category-icon">{{ category.icon }}</span>
-            <span class="category-label">{{ category.label }}</span>
-          </button>
-        }
+      <div class="category-nav">
+        <div class="category-tabs">
+          @for (category of categories; track category.value) {
+            <button 
+              class="category-tab"
+              [class.active]="selectedCategory() === category.value"
+              (click)="selectCategory(category.value)">
+              <span class="tab-icon">{{ category.icon }}</span>
+              <span class="tab-text">{{ category.label }}</span>
+              <span class="tab-count">({{ getCategoryCount(category.value) }})</span>
+            </button>
+          }
+        </div>
       </div>
     </section>
 
